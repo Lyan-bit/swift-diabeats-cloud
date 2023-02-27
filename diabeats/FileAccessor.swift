@@ -3,7 +3,9 @@ import Darwin
 
 class FileAccessor
 {
-  init() { }
+  init() { 
+  	//init
+  }
 
   static func createFile(filename : String) 
   { let fm = FileManager.default

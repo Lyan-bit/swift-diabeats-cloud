@@ -9,7 +9,7 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
   var bloodPressure: Int = 0
   var skinThickness: Int = 0
   var insulin: Int = 0
-  var BMI: Double = 0.0
+  var bmi: Double = 0.0
   var diabetesPedigreeFunction: Double = 0.0
   var age: Int = 0
   var outcome: String = ""
@@ -17,7 +17,9 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
   static var defaultInstance : DiabeatsVO? = nil
   var errorList : [String] = [String]()
 
-  init() {}
+  init() {
+  	//init
+  }
 
   static func defaultDiabeatsVO() -> DiabeatsVO
   { if defaultInstance == nil
@@ -25,98 +27,98 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
     return defaultInstance!
   }
 
-  init(idx: String, pregnanciesx: Int, glucosex: Int, bloodPressurex: Int, skinThicknessx: Int, insulinx: Int, BMIx: Double, diabetesPedigreeFunctionx: Double, agex: Int, outcomex: String)  {
+  init(idx: String, pregnanciesx: Int, glucosex: Int, bloodPressurex: Int, skinThicknessx: Int, insulinx: Int, bmix: Double, diabetesPedigreeFunctionx: Double, agex: Int, outcomex: String)  {
     id = idx
     pregnancies = pregnanciesx
     glucose = glucosex
     bloodPressure = bloodPressurex
     skinThickness = skinThicknessx
     insulin = insulinx
-    BMI = BMIx
+    bmi = bmix
     diabetesPedigreeFunction = diabetesPedigreeFunctionx
     age = agex
     outcome = outcomex
   }
 
-  init(_x : Diabeats)  {
-    id = _x.id
-    pregnancies = _x.pregnancies
-    glucose = _x.glucose
-    bloodPressure = _x.bloodPressure
-    skinThickness = _x.skinThickness
-    insulin = _x.insulin
-    BMI = _x.BMI
-    diabetesPedigreeFunction = _x.diabetesPedigreeFunction
-    age = _x.age
-    outcome = _x.outcome
+  init(x : Diabeats)  {
+    id = x.id
+    pregnancies = x.pregnancies
+    glucose = x.glucose
+    bloodPressure = x.bloodPressure
+    skinThickness = x.skinThickness
+    insulin = x.insulin
+    bmi = x.bmi
+    diabetesPedigreeFunction = x.diabetesPedigreeFunction
+    age = x.age
+    outcome = x.outcome
   }
 
   func toString() -> String
-  { return " id= \(id), pregnancies= \(pregnancies), glucose= \(glucose), bloodPressure= \(bloodPressure), skinThickness= \(skinThickness), insulin= \(insulin), BMI= \(BMI), diabetesPedigreeFunction= \(diabetesPedigreeFunction), age= \(age), outcome= \(outcome) "
+  { return " id= \(id), pregnancies= \(pregnancies), glucose= \(glucose), bloodPressure= \(bloodPressure), skinThickness= \(skinThickness), insulin= \(insulin), bmi= \(bmi), diabetesPedigreeFunction= \(diabetesPedigreeFunction), age= \(age), outcome= \(outcome) "
   }
 
   func getId() -> String
 	  { return id }
 	
-  func setId(_x : String)
-	  { id = _x }
+  func setId(x : String)
+	  { id = x }
 	  
   func getPregnancies() -> Int
 	  { return pregnancies }
 	
-  func setPregnancies(_x : Int)
-	  { pregnancies = _x }
+  func setPregnancies(x : Int)
+	  { pregnancies = x }
 	  
   func getGlucose() -> Int
 	  { return glucose }
 	
-  func setGlucose(_x : Int)
-	  { glucose = _x }
+  func setGlucose(x : Int)
+	  { glucose = x }
 	  
   func getBloodPressure() -> Int
 	  { return bloodPressure }
 	
-  func setBloodPressure(_x : Int)
-	  { bloodPressure = _x }
+  func setBloodPressure(x : Int)
+	  { bloodPressure = x }
 	  
   func getSkinThickness() -> Int
 	  { return skinThickness }
 	
-  func setSkinThickness(_x : Int)
-	  { skinThickness = _x }
+  func setSkinThickness(x : Int)
+	  { skinThickness = x }
 	  
   func getInsulin() -> Int
 	  { return insulin }
 	
-  func setInsulin(_x : Int)
-	  { insulin = _x }
+  func setInsulin(x : Int)
+	  { insulin = x }
 	  
-  func getBMI() -> Double
-	  { return BMI }
+  func getBmi() -> Double
+	  { return bmi }
 	
-  func setBMI(_x : Double)
-	  { BMI = _x }
+  func setBmi(x : Double)
+	  { bmi = x }
 	  
   func getDiabetesPedigreeFunction() -> Double
 	  { return diabetesPedigreeFunction }
 	
-  func setDiabetesPedigreeFunction(_x : Double)
-	  { diabetesPedigreeFunction = _x }
+  func setDiabetesPedigreeFunction(x : Double)
+	  { diabetesPedigreeFunction = x }
 	  
   func getAge() -> Int
 	  { return age }
 	
-  func setAge(_x : Int)
-	  { age = _x }
+  func setAge(x : Int)
+	  { age = x }
 	  
   func getOutcome() -> String
 	  { return outcome }
 	
-  func setOutcome(_x : String)
-	  { outcome = _x }
+  func setOutcome(x : String)
+	  { outcome = x }
 	  
 
-  static func ==(lhs: DiabeatsVO, rhs: DiabeatsVO) -> Bool
+  static func == (lhs: DiabeatsVO, rhs: DiabeatsVO) -> Bool
   { return
       lhs.id == rhs.id &&
       lhs.pregnancies == rhs.pregnancies &&
@@ -124,7 +126,7 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
       lhs.bloodPressure == rhs.bloodPressure &&
       lhs.skinThickness == rhs.skinThickness &&
       lhs.insulin == rhs.insulin &&
-      lhs.BMI == rhs.BMI &&
+      lhs.bmi == rhs.bmi &&
       lhs.diabetesPedigreeFunction == rhs.diabetesPedigreeFunction &&
       lhs.age == rhs.age &&
       lhs.outcome == rhs.outcome
@@ -137,7 +139,7 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
     hasher.combine(bloodPressure)
     hasher.combine(skinThickness)
     hasher.combine(insulin)
-    hasher.combine(BMI)
+    hasher.combine(bmi)
     hasher.combine(diabetesPedigreeFunction)
     hasher.combine(age)
     hasher.combine(outcome)

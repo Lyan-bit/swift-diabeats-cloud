@@ -9,7 +9,9 @@ class ClassifyDiabeatsVO {
 
   var result : String = ""
 
-  init() {}
+  init() {
+  	//init
+  }
   
   static func defaultClassifyDiabeatsVO() -> ClassifyDiabeatsVO
   { if defaultInstance == nil
@@ -25,13 +27,13 @@ class ClassifyDiabeatsVO {
   	{ return "" + "diabeats = " + diabeats }
 
   func getDiabeats() -> Diabeats
-  	{ return Diabeats.Diabeats_index[diabeats]! }
-			
-  func setDiabeats(_x : Diabeats)
-  	{ diabeats = _x.id }
+  	{ return Diabeats.diabeatsIndex[diabeats]! }
+  	
+  func setDiabeats(x : Diabeats)
+  	{ diabeats = x.id }
 			  
-  func setResult (_x: String) {
-    result = _x }
+  func setResult (x: String) {
+    result = x }
           
   func resetData()
   	{ errorList = [String]() }
@@ -39,8 +41,9 @@ class ClassifyDiabeatsVO {
   func isClassifyDiabeatsError() -> Bool
   	{ resetData()
   
- if Diabeats.Diabeats_index[diabeats] == nil
+ if Diabeats.diabeatsIndex[diabeats] == nil
 	{ errorList.append("Invalid diabeats id: " + diabeats) }
+
 
     if errorList.count > 0
     { return true }

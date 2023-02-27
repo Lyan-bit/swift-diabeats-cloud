@@ -5,8 +5,9 @@ struct ListDiabeatsScreen: View {
     @ObservedObject var model : ModelFacade = ModelFacade.getInstance()
 
      var body: some View
-     { List(model.currentDiabeatss)
-       { instance in ListDiabeatsRowScreen(instance: instance) }.onAppear(perform: { model.listDiabeats() })
+     { List(model.currentDiabeatss){ instance in 
+     	ListDiabeatsRowScreen(instance: instance) }
+       .onAppear(perform: { model.listDiabeats() })
      }
     
 }

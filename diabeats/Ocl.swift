@@ -69,7 +69,9 @@ class Ocl
   static func excludingSequence<T : Equatable>(s : [T], x : T) -> [T]
   { var result : [T] = [T]()
     for y in s
-    { if x == y {}
+    { if x == y {
+    	//value
+    }
       else
       { result.append(y) }
     }
@@ -79,7 +81,9 @@ class Ocl
   static func excludingSequence<T : AnyObject>(s : [T], x : T) -> [T]
   { var result : [T] = [T]()
     for y in s
-    { if x === y {}
+    { if x === y {
+    	//value
+    }
       else
       { result.append(y) }
     }
@@ -89,7 +93,9 @@ class Ocl
   static func sequenceSubtract<T : Equatable>(s1 : [T], s2 : [T]) -> [T]
   { var result : [T] = [T]()
     for y in s1
-    { if containsSequence(s: s2, x: y) {}
+    { if containsSequence(s: s2, x: y) {
+    	//value
+    }
       else
       { result.append(y) }
     }
@@ -99,7 +105,9 @@ class Ocl
   static func sequenceSubtract<T : AnyObject>(s1 : [T], s2 : [T]) -> [T]
   { var result : [T] = [T]()
     for y in s1
-    { if containsSequence(s: s2, x: y) {}
+    { if containsSequence(s: s2, x: y) {
+    	//value
+    }
       else
       { result.append(y) }
     }
@@ -109,7 +117,9 @@ class Ocl
   static func sequenceSubtract<T>(s1 : [T], s2 : Set<T>) -> [T]
   { var result : [T] = [T]()
     for y in s1
-    { if s2.contains(y) {}
+    { if s2.contains(y) {
+    	//value
+    }
       else
       { result.append(y) }
     }
@@ -458,10 +468,8 @@ class Ocl
     return nil
   }
 
-  static func any<T>(s : Set<T>) -> T?
-  { for v in s
-    { return v }
-    return nil
+  static func any<T>(s : Set<T>) -> T? { 
+  	return s.first
   }
 
   static func any<T>(s : [T], f : (T) -> Bool) -> T?
@@ -472,10 +480,8 @@ class Ocl
     return nil
   }
 
-  static func any<T>(s : [T]) -> T?
-  { for v in s
-    { return v }
-    return nil
+  static func any<T>(s : [T]) -> T? { 
+  	return s.first
   }
 
 
@@ -519,7 +525,9 @@ class Ocl
   static func reject<T>(s : Set<T>, f : (T) -> Bool) -> Set<T>
   { var result : Set<T> = Set<T>()
     for v in s
-    { if (f(v)) {}
+    { if (f(v)) {
+    	//value
+    }
       else
       { result.insert(v) }
     }
@@ -569,7 +577,9 @@ class Ocl
   static func reject<T>(s : [T], f : (T) -> Bool) -> [T]
   { var result : [T] = [T]()
     for v in s
-    { if (f(v)) {}
+    { if (f(v)) {
+    	//value
+    }
       else
       { result.append(v) }
     }
@@ -764,7 +774,9 @@ class Ocl
   static func rejectMap<T>(m : Dictionary<String,T>, f : (T) -> Bool) -> Dictionary<String,T>
   { var result : Dictionary<String,T> = [String:T]()
     for (k,v) in m
-    { if (f(v)) {}
+    { if (f(v)) {
+    	//value
+    }
       else
       { result[k] = v }
     }
@@ -776,7 +788,9 @@ class Ocl
     for (k,v) in m
     { do
       { try result[k] = f(v) }
-      catch { }
+      catch     { 
+    	//catch
+    }
     }
     return result
   }
@@ -794,7 +808,9 @@ class Ocl
   { var result : Dictionary<String,T> = [String:T]()
     for (k,v) in m
     { if ks.contains(k)
-      { }
+          { 
+    	//catch
+    }
       else
       { result[k] = v }
     }
@@ -874,8 +890,9 @@ class Ocl
   
   static func includesAllSequence<T: Equatable>(s1 : [T], s2 : [T]) -> Bool
   { for (_,y) in s2.enumerated()
-    { if containsSequence(s: s1, x: y)
-      {}
+    { if containsSequence(s: s1, x: y) {
+    	//value
+    }
       else
       { return false }
     }
@@ -885,8 +902,9 @@ class Ocl
  
   static func includesAllSequence<T: AnyObject>(s1 : [T], s2 : [T]) -> Bool
   { for (_,y) in s2.enumerated()
-    { if containsSequence(s: s1, x: y)
-      {}
+    { if containsSequence(s: s1, x: y) {
+    	//value
+    }
       else
       { return false }
     }
@@ -926,7 +944,7 @@ class Ocl
     result = ""
     var i : Int = 0
     i = 1
-    while ((i < str.count && Ocl.iswhitespace(s: Ocl.at(str: str, ind: i))))
+    while (i < str.count && Ocl.iswhitespace(s: Ocl.at(str: str, ind: i)))
     {
       i = i + 1
     }
@@ -997,15 +1015,12 @@ class Ocl
      else if found
      { return res + 1 }
      
-     if found == false
+     if !found
      { if c == sepchars[0]
        { found = true
          ind = 1
        }
-     }
-    
-     if found == false
-     { res = res + 1 }
+     res = res + 1 }
    }
 
    if found
@@ -1082,8 +1097,9 @@ class Ocl
 
     for index in s1.indices
     { let c1 : Character = s1[index]
-      if subtracted.contains(c1)
-      { }
+      if subtracted.contains(c1) { 
+      	//check 
+      }
       else
       { result.append(c1) }
     }
@@ -1154,15 +1170,16 @@ class Ocl
 
   static func firstCharacter(str: String) -> Character
   { var res : [Character] = [Character]()
-    for ind in str.indices
-    { res.append(str[ind])
-      return str[ind]
-    }
+  
+  if !(str.isEmpty) {
+  	res.append(str.first!)
+  	return str.first!
+  	}
     return res[0]
   }
 
   static func insertAtString(s1 : String, s2 : String, ind : Int) -> String
-  { var result : [Character] = [Character]()
+  { var result : [Character]
     let seq1 = Ocl.chars(str: s1)
     let seq2 = Ocl.chars(str: s2)
     result = Ocl.insertAt(s1: seq1, s2: seq2, ind: ind)
@@ -1231,15 +1248,15 @@ class Ocl
    
    static func hasMatch(str: String, pattern: String) -> Bool
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let pred = regexp.firstMatch(in: str, options: [], range: rge)
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let pred = regexp?.firstMatch(in: str, options: [], range: rge)
      return pred != nil
   }
   
    static func isMatch(str: String, pattern: String) -> Bool
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let pred = regexp.firstMatch(in: str, options: [], range: rge)
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let pred = regexp?.firstMatch(in: str, options: [], range: rge)
      if pred == nil
      { return false }
      let res = pred!.range
@@ -1248,33 +1265,33 @@ class Ocl
 
    static func replaceFirstMatch(str: String, pattern: String, rep: String) -> String
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let p = regexp.rangeOfFirstMatch(in: str, options: [], range: rge)
-     var result : String = str
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let p = regexp?.rangeOfFirstMatch(in: str, options: [], range: rge)
+     let result : String = str
 
-     if p.length <= 0
+     if p?.length ?? 0 <= 0
      { return result }
 
      let modText =
-        regexp.stringByReplacingMatches(in: str, options: [],
-              range: NSRange(location: 0, length: p.location + p.length), withTemplate: rep)
+        regexp?.stringByReplacingMatches(in: str, options: [],
+              range: NSRange(location: 0, length: (p?.location ?? 0) + (p?.length ?? 0)), withTemplate: rep) ?? ""
     return modText
  }
 
 
   static func replaceAll(str: String, pattern: String, rep: String) -> String
-  { let regex = try! NSRegularExpression(pattern: pattern)
+  { let regex = try? NSRegularExpression(pattern: pattern)
     
     let modText =
-      regex.stringByReplacingMatches(in: str, options: [],
-              range: NSRange(location: 0, length: str.count), withTemplate: rep)
+      regex?.stringByReplacingMatches(in: str, options: [],
+              range: NSRange(location: 0, length: str.count), withTemplate: rep) ?? ""
     return modText
   }
 
   static func allMatches(str: String, pattern: String) -> [String]
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let pred = regexp.matches(in: str, options: [], range: rge)
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let pred = regexp?.matches(in: str, options: [], range: rge) ?? []
      var result : [String] = [String]()
 
      for p in pred
@@ -1287,21 +1304,21 @@ class Ocl
   
   static func firstMatch(str: String, pattern: String) -> String?
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let p = regexp.rangeOfFirstMatch(in: str, options: [], range: rge)
-     var result : String? = nil
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let p = regexp?.rangeOfFirstMatch(in: str, options: [], range: rge)
+     let result : String? = nil
 
-     if p.length <= 0
+     if p?.length ?? 0 <= 0
      { return result }
 
-     let matchString = Ocl.stringSubrange(str: str, st: p.location+1, en: p.location + p.length)
+     let matchString = Ocl.stringSubrange(str: str, st: (p?.location ?? 0)+1, en: (p?.location ?? 0) + (p?.length ?? 0))
      return matchString
  }
 
    static func split(str: String, pattern: String) -> [String]
    { let rge = NSRange(location: 0, length: str.utf16.count)
-     let regexp = try! NSRegularExpression(pattern: pattern)
-     let pred = regexp.matches(in: str, options: [], range: rge)
+     let regexp = try? NSRegularExpression(pattern: pattern)
+     let pred = regexp?.matches(in: str, options: [], range: rge) ?? []
      var result : [String] = [String]()
      var prev : Int = 1;
 
@@ -1382,7 +1399,7 @@ class Ocl
   }
 
   static func removeObject<T : AnyObject>(sq : [T], obj: T) -> [T]
-  { var result : [T] =
+  { let result : [T] =
           sq.filter{ $0 !== obj }
     return result
   }

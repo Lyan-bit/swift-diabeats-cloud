@@ -12,7 +12,7 @@ struct ClassifyDiabeatsScreen: View {
   		ScrollView {
         VStack {
              HStack (spacing: 20) {
-             	Text("Select id:").bold()
+             	Text("id:").bold()
              	Divider()
                 Picker("Select a object", selection: $objectId) {
                   ForEach(model.currentDiabeatss) { Text($0.id).tag($0.id) }
@@ -25,7 +25,7 @@ struct ClassifyDiabeatsScreen: View {
              }.frame(width: 200, height: 60).border(Color.gray)
              
              HStack (spacing: 20) {
-                Button(action: { result = self.model.classifyDiabeats(_x: objectId) } ) { Text("Classify") }
+                Button(action: { result = self.model.classifyDiabeats(x: objectId) } ) { Text("Classify") }
 				Button(action: {self.model.cancelClassifyDiabeats() } ) { Text("Cancel") }
 		     }.buttonStyle(.bordered)
         }.onAppear(perform:

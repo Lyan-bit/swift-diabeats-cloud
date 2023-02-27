@@ -4,7 +4,9 @@ import Darwin
 class OclAttribute
 { private static var instance : OclAttribute? = nil
 
-  init() { }
+  init() { 
+  	//init
+  }
 
   init(copyFrom: OclAttribute) {
     self.name = copyFrom.name
@@ -43,25 +45,27 @@ class OclAttribute
 }
 
 
-var OclAttribute_allInstances : [OclAttribute] = [OclAttribute]()
+var OclAttributeAllInstances : [OclAttribute] = [OclAttribute]()
 
 func createOclAttribute() -> OclAttribute
 { let result : OclAttribute = OclAttribute()
-  OclAttribute_allInstances.append(result)
+  OclAttributeAllInstances.append(result)
   return result
 }
 
 func addOclAttribute(instance : OclAttribute)
-{ OclAttribute_allInstances.append(instance) }
+{ OclAttributeAllInstances.append(instance) }
 
 func killOclAttribute(obj: OclAttribute)
-{ OclAttribute_allInstances = OclAttribute_allInstances.filter{ $0 !== obj } }
+{ OclAttributeAllInstances = OclAttributeAllInstances.filter{ $0 !== obj } }
 
 
 class OclOperation
 { private static var instance : OclOperation? = nil
 
-  init() { }
+  init() { 
+  	//init
+  }
 
   init(copyFrom: OclOperation) {
     self.name = copyFrom.name
@@ -113,29 +117,31 @@ class OclOperation
 }
 
 
-var OclOperation_allInstances : [OclOperation] = [OclOperation]()
+var OclOperationAllInstances : [OclOperation] = [OclOperation]()
 
 func createOclOperation() -> OclOperation
 { let result : OclOperation = OclOperation()
-  OclOperation_allInstances.append(result)
+  OclOperationAllInstances.append(result)
   return result
 }
 
 func addOclOperation(instance : OclOperation)
-{ OclOperation_allInstances.append(instance) }
+{ OclOperationAllInstances.append(instance) }
 
 func killOclOperation(obj: OclOperation)
-{ OclOperation_allInstances = OclOperation_allInstances.filter{ $0 !== obj } }
+{ OclOperationAllInstances = OclOperationAllInstances.filter{ $0 !== obj } }
 
 
 
 class OclType
 { private static var instance : OclType? = nil
 
-  init() { }
+  init() { 
+  	//init
+  }
 
   init(copyFrom: OclType) {
-    self.name = "copy_" + copyFrom.name
+    self.name = "copy" + copyFrom.name
     self.attributes = Ocl.copySequence(s: copyFrom.attributes) 
     self.operations = Ocl.copySequence(s: copyFrom.operations)
     self.constructors = Ocl.copySequence(s: copyFrom.constructors)
@@ -161,10 +167,10 @@ class OclType
 
   var name : String = "" /* principal key */
 
-  static var OclType_index : Dictionary<String,OclType> = [String:OclType]()
+  static var oclTypeIndex : Dictionary<String,OclType> = [String:OclType]()
 
   static func getByPKOclType(index : String) -> OclType?
-  { return OclType_index[index] }
+  { return oclTypeIndex[index] }
 
   var attributes : [OclAttribute] = []
   var operations : [OclOperation] = []
@@ -186,8 +192,7 @@ class OclType
 
   func getDeclaredClasses() -> [OclType]
   {
-    var result : [OclType] = []
-    result = Ocl.sequenceSubtract(s1: innerClasses, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getClasses()})))
+    let result : [OclType] = Ocl.sequenceSubtract(s1: innerClasses, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getClasses()})))
     return result
   }
 
@@ -217,7 +222,7 @@ class OclType
 
   func getDeclaredField(s : String) -> OclAttribute
   {
-    var result : OclAttribute = OclAttribute.defaultInstance()
+    let result : OclAttribute = OclAttribute.defaultInstance()
     let x = Ocl.any(s: Ocl.select(s: attributes, f: { att in att.name == s }))
     if x != nil
     { return x! } 
@@ -227,7 +232,7 @@ class OclType
 
   func getField(s : String) -> OclAttribute
   {
-    var result : OclAttribute = OclAttribute.defaultInstance()
+    let result : OclAttribute = OclAttribute.defaultInstance()
     let x = Ocl.any(s: Ocl.select(s: attributes, f: { att in att.name == s }))
     if x != nil
     { return x! } 
@@ -237,8 +242,7 @@ class OclType
 
   func getDeclaredFields() -> [OclAttribute]
   {
-    var result : [OclAttribute] = []
-    result = Ocl.sequenceSubtract(s1: attributes, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getFields()})))
+    let result : [OclAttribute] = Ocl.sequenceSubtract(s1: attributes, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getFields()})))
     return result
   }
 
@@ -251,8 +255,7 @@ class OclType
 
   func getDeclaredMethods() -> [OclOperation]
   {
-    var result : [OclOperation] = []
-    result = Ocl.sequenceSubtract(s1: operations, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getMethods()})))
+    let result : [OclOperation] = Ocl.sequenceSubtract(s1: operations, s2: Ocl.unionAll(s: superclasses.map({sc in sc.getMethods()})))
     return result
   }
 
@@ -279,30 +282,32 @@ class OclType
 }
 
 
-var OclType_allInstances : [OclType] = [OclType]()
+var OclTypeAllInstances : [OclType] = [OclType]()
 
 func createOclType() -> OclType
 { let result : OclType = OclType()
-  OclType_allInstances.append(result)
+  OclTypeAllInstances.append(result)
   return result
 }
 
 func addOclType(instance : OclType)
-{ OclType_allInstances.append(instance) }
+{ OclTypeAllInstances.append(instance) }
 
 func killOclType(obj: OclType)
-{ OclType_allInstances = OclType_allInstances.filter{ $0 !== obj } }
+{ OclTypeAllInstances = OclTypeAllInstances.filter{ $0 !== obj } }
 
 func createByPKOclType(key : String) -> OclType
 { var result : OclType? = OclType.getByPKOclType(index: key)
-  if result != nil { return result! } 
+  if result != nil { 
+  	return result!
+  } 
   result = OclType()
-  OclType_allInstances.append(result!)
-  OclType.OclType_index[key] = result!
+  OclTypeAllInstances.append(result!)
+  OclType.oclTypeIndex[key] = result!
   result!.name = key
   return result! }
 
 func killOclType(key : String)
-{ OclType.OclType_index[key] = nil
-  OclType_allInstances.removeAll(where: { $0.name == key })
+{ OclType.oclTypeIndex[key] = nil
+  OclTypeAllInstances.removeAll(where: { $0.name == key })
 }

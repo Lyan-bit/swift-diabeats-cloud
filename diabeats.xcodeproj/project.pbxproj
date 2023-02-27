@@ -7,54 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0231360729AD66BF00F28416 /* FileAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135F729AD66BF00F28416 /* FileAccessor.swift */; };
+		0231360829AD66BF00F28416 /* CreateDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135F829AD66BF00F28416 /* CreateDiabeatsScreen.swift */; };
+		0231360929AD66BF00F28416 /* Diabeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135F929AD66BF00F28416 /* Diabeats.swift */; };
+		0231360A29AD66BF00F28416 /* ModelFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FA29AD66BF00F28416 /* ModelFacade.swift */; };
+		0231360B29AD66BF00F28416 /* ListDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FB29AD66BF00F28416 /* ListDiabeatsScreen.swift */; };
+		0231360C29AD66BF00F28416 /* ListDiabeatsRowScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FC29AD66BF00F28416 /* ListDiabeatsRowScreen.swift */; };
+		0231360D29AD66BF00F28416 /* DiabeatsBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FD29AD66BF00F28416 /* DiabeatsBean.swift */; };
+		0231360E29AD66BF00F28416 /* ClassifyDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FE29AD66BF00F28416 /* ClassifyDiabeatsScreen.swift */; };
+		0231360F29AD66BF00F28416 /* Ocl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023135FF29AD66BF00F28416 /* Ocl.swift */; };
+		0231361029AD66BF00F28416 /* OclFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360029AD66BF00F28416 /* OclFile.swift */; };
+		0231361129AD66BF00F28416 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360129AD66BF00F28416 /* ContentView.swift */; };
+		0231361229AD66BF00F28416 /* DiabeatsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360229AD66BF00F28416 /* DiabeatsMain.swift */; };
+		0231361329AD66BF00F28416 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360329AD66BF00F28416 /* ModelParser.swift */; };
+		0231361429AD66BF00F28416 /* ClassifyDiabeatsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360429AD66BF00F28416 /* ClassifyDiabeatsVO.swift */; };
+		0231361529AD66BF00F28416 /* OclType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360529AD66BF00F28416 /* OclType.swift */; };
+		0231361629AD66BF00F28416 /* DiabeatsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231360629AD66BF00F28416 /* DiabeatsVO.swift */; };
+		0231361929AD66E400F28416 /* DiabeatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231361729AD66E400F28416 /* DiabeatsDAO.swift */; };
+		0231361A29AD66E400F28416 /* FirebaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0231361829AD66E400F28416 /* FirebaseDB.swift */; };
 		028C7193299A5E8E00D197B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028C7192299A5E8E00D197B7 /* Assets.xcassets */; };
 		028C7196299A5E8E00D197B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028C7195299A5E8E00D197B7 /* Preview Assets.xcassets */; };
-		028C71AF299A5EB400D197B7 /* ModelFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C719D299A5EB300D197B7 /* ModelFacade.swift */; };
-		028C71B0299A5EB400D197B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C719E299A5EB300D197B7 /* ContentView.swift */; };
-		028C71B1299A5EB400D197B7 /* Ocl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C719F299A5EB300D197B7 /* Ocl.swift */; };
-		028C71B2299A5EB400D197B7 /* FirebaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A0299A5EB400D197B7 /* FirebaseDB.swift */; };
-		028C71B3299A5EB400D197B7 /* CreateDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A1299A5EB400D197B7 /* CreateDiabeatsScreen.swift */; };
-		028C71B4299A5EB400D197B7 /* DiabeatsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A2299A5EB400D197B7 /* DiabeatsMain.swift */; };
-		028C71B5299A5EB400D197B7 /* ListDiabeatsRowScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A3299A5EB400D197B7 /* ListDiabeatsRowScreen.swift */; };
-		028C71B6299A5EB400D197B7 /* DiabeatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A4299A5EB400D197B7 /* DiabeatsDAO.swift */; };
-		028C71B7299A5EB400D197B7 /* Diabeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A5299A5EB400D197B7 /* Diabeats.swift */; };
-		028C71B8299A5EB400D197B7 /* OclFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A6299A5EB400D197B7 /* OclFile.swift */; };
-		028C71B9299A5EB400D197B7 /* OclType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A7299A5EB400D197B7 /* OclType.swift */; };
-		028C71BA299A5EB400D197B7 /* DiabeatsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A8299A5EB400D197B7 /* DiabeatsVO.swift */; };
-		028C71BB299A5EB400D197B7 /* ClassifyDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71A9299A5EB400D197B7 /* ClassifyDiabeatsScreen.swift */; };
-		028C71BC299A5EB400D197B7 /* ListDiabeatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71AA299A5EB400D197B7 /* ListDiabeatsScreen.swift */; };
-		028C71BD299A5EB400D197B7 /* FileAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71AB299A5EB400D197B7 /* FileAccessor.swift */; };
-		028C71BE299A5EB400D197B7 /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71AC299A5EB400D197B7 /* ModelParser.swift */; };
-		028C71BF299A5EB400D197B7 /* ClassifyDiabeatsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71AD299A5EB400D197B7 /* ClassifyDiabeatsVO.swift */; };
-		028C71C0299A5EB400D197B7 /* DiabeatsBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028C71AE299A5EB400D197B7 /* DiabeatsBean.swift */; };
 		028C71C2299A610000D197B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 028C71C1299A610000D197B7 /* GoogleService-Info.plist */; };
 		028C71C4299A615A00D197B7 /* diabeats.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 028C71C3299A615A00D197B7 /* diabeats.tflite */; };
 		249C584CA732F664DD00CEBD /* Pods_diabeats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34403B53468043F9FF695078 /* Pods_diabeats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		023135F729AD66BF00F28416 /* FileAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAccessor.swift; sourceTree = "<group>"; };
+		023135F829AD66BF00F28416 /* CreateDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDiabeatsScreen.swift; sourceTree = "<group>"; };
+		023135F929AD66BF00F28416 /* Diabeats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diabeats.swift; sourceTree = "<group>"; };
+		023135FA29AD66BF00F28416 /* ModelFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFacade.swift; sourceTree = "<group>"; };
+		023135FB29AD66BF00F28416 /* ListDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDiabeatsScreen.swift; sourceTree = "<group>"; };
+		023135FC29AD66BF00F28416 /* ListDiabeatsRowScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDiabeatsRowScreen.swift; sourceTree = "<group>"; };
+		023135FD29AD66BF00F28416 /* DiabeatsBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsBean.swift; sourceTree = "<group>"; };
+		023135FE29AD66BF00F28416 /* ClassifyDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifyDiabeatsScreen.swift; sourceTree = "<group>"; };
+		023135FF29AD66BF00F28416 /* Ocl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocl.swift; sourceTree = "<group>"; };
+		0231360029AD66BF00F28416 /* OclFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OclFile.swift; sourceTree = "<group>"; };
+		0231360129AD66BF00F28416 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0231360229AD66BF00F28416 /* DiabeatsMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsMain.swift; sourceTree = "<group>"; };
+		0231360329AD66BF00F28416 /* ModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
+		0231360429AD66BF00F28416 /* ClassifyDiabeatsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifyDiabeatsVO.swift; sourceTree = "<group>"; };
+		0231360529AD66BF00F28416 /* OclType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OclType.swift; sourceTree = "<group>"; };
+		0231360629AD66BF00F28416 /* DiabeatsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsVO.swift; sourceTree = "<group>"; };
+		0231361729AD66E400F28416 /* DiabeatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsDAO.swift; sourceTree = "<group>"; };
+		0231361829AD66E400F28416 /* FirebaseDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDB.swift; sourceTree = "<group>"; };
 		028C718B299A5E8D00D197B7 /* diabeats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diabeats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028C7192299A5E8E00D197B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028C7195299A5E8E00D197B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		028C719C299A5EB300D197B7 /* diabeats-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "diabeats-Bridging-Header.h"; sourceTree = "<group>"; };
-		028C719D299A5EB300D197B7 /* ModelFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFacade.swift; sourceTree = "<group>"; };
-		028C719E299A5EB300D197B7 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		028C719F299A5EB300D197B7 /* Ocl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocl.swift; sourceTree = "<group>"; };
-		028C71A0299A5EB400D197B7 /* FirebaseDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDB.swift; sourceTree = "<group>"; };
-		028C71A1299A5EB400D197B7 /* CreateDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDiabeatsScreen.swift; sourceTree = "<group>"; };
-		028C71A2299A5EB400D197B7 /* DiabeatsMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsMain.swift; sourceTree = "<group>"; };
-		028C71A3299A5EB400D197B7 /* ListDiabeatsRowScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDiabeatsRowScreen.swift; sourceTree = "<group>"; };
-		028C71A4299A5EB400D197B7 /* DiabeatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsDAO.swift; sourceTree = "<group>"; };
-		028C71A5299A5EB400D197B7 /* Diabeats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diabeats.swift; sourceTree = "<group>"; };
-		028C71A6299A5EB400D197B7 /* OclFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OclFile.swift; sourceTree = "<group>"; };
-		028C71A7299A5EB400D197B7 /* OclType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OclType.swift; sourceTree = "<group>"; };
-		028C71A8299A5EB400D197B7 /* DiabeatsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsVO.swift; sourceTree = "<group>"; };
-		028C71A9299A5EB400D197B7 /* ClassifyDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifyDiabeatsScreen.swift; sourceTree = "<group>"; };
-		028C71AA299A5EB400D197B7 /* ListDiabeatsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDiabeatsScreen.swift; sourceTree = "<group>"; };
-		028C71AB299A5EB400D197B7 /* FileAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAccessor.swift; sourceTree = "<group>"; };
-		028C71AC299A5EB400D197B7 /* ModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
-		028C71AD299A5EB400D197B7 /* ClassifyDiabeatsVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifyDiabeatsVO.swift; sourceTree = "<group>"; };
-		028C71AE299A5EB400D197B7 /* DiabeatsBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiabeatsBean.swift; sourceTree = "<group>"; };
 		028C71C1299A610000D197B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		028C71C3299A615A00D197B7 /* diabeats.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = diabeats.tflite; sourceTree = "<group>"; };
 		0A6995326CFA915919114D65 /* Pods-diabeats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diabeats.debug.xcconfig"; path = "Target Support Files/Pods-diabeats/Pods-diabeats.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,26 +95,26 @@
 		028C718D299A5E8D00D197B7 /* diabeats */ = {
 			isa = PBXGroup;
 			children = (
+				023135FE29AD66BF00F28416 /* ClassifyDiabeatsScreen.swift */,
+				0231360429AD66BF00F28416 /* ClassifyDiabeatsVO.swift */,
+				0231360129AD66BF00F28416 /* ContentView.swift */,
+				023135F829AD66BF00F28416 /* CreateDiabeatsScreen.swift */,
+				023135F929AD66BF00F28416 /* Diabeats.swift */,
+				023135FD29AD66BF00F28416 /* DiabeatsBean.swift */,
+				0231360229AD66BF00F28416 /* DiabeatsMain.swift */,
+				0231360629AD66BF00F28416 /* DiabeatsVO.swift */,
+				023135F729AD66BF00F28416 /* FileAccessor.swift */,
+				023135FC29AD66BF00F28416 /* ListDiabeatsRowScreen.swift */,
+				023135FB29AD66BF00F28416 /* ListDiabeatsScreen.swift */,
+				023135FA29AD66BF00F28416 /* ModelFacade.swift */,
+				0231361729AD66E400F28416 /* DiabeatsDAO.swift */,
+				0231361829AD66E400F28416 /* FirebaseDB.swift */,
+				0231360329AD66BF00F28416 /* ModelParser.swift */,
+				023135FF29AD66BF00F28416 /* Ocl.swift */,
+				0231360029AD66BF00F28416 /* OclFile.swift */,
+				0231360529AD66BF00F28416 /* OclType.swift */,
 				028C71C3299A615A00D197B7 /* diabeats.tflite */,
 				028C71C1299A610000D197B7 /* GoogleService-Info.plist */,
-				028C71A9299A5EB400D197B7 /* ClassifyDiabeatsScreen.swift */,
-				028C71AD299A5EB400D197B7 /* ClassifyDiabeatsVO.swift */,
-				028C719E299A5EB300D197B7 /* ContentView.swift */,
-				028C71A1299A5EB400D197B7 /* CreateDiabeatsScreen.swift */,
-				028C71A5299A5EB400D197B7 /* Diabeats.swift */,
-				028C71AE299A5EB400D197B7 /* DiabeatsBean.swift */,
-				028C71A4299A5EB400D197B7 /* DiabeatsDAO.swift */,
-				028C71A2299A5EB400D197B7 /* DiabeatsMain.swift */,
-				028C71A8299A5EB400D197B7 /* DiabeatsVO.swift */,
-				028C71AB299A5EB400D197B7 /* FileAccessor.swift */,
-				028C71A0299A5EB400D197B7 /* FirebaseDB.swift */,
-				028C71A3299A5EB400D197B7 /* ListDiabeatsRowScreen.swift */,
-				028C71AA299A5EB400D197B7 /* ListDiabeatsScreen.swift */,
-				028C719D299A5EB300D197B7 /* ModelFacade.swift */,
-				028C71AC299A5EB400D197B7 /* ModelParser.swift */,
-				028C719F299A5EB300D197B7 /* Ocl.swift */,
-				028C71A6299A5EB400D197B7 /* OclFile.swift */,
-				028C71A7299A5EB400D197B7 /* OclType.swift */,
 				028C7192299A5E8E00D197B7 /* Assets.xcassets */,
 				028C7194299A5E8E00D197B7 /* Preview Content */,
 				028C719C299A5EB300D197B7 /* diabeats-Bridging-Header.h */,
@@ -264,24 +264,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028C71B0299A5EB400D197B7 /* ContentView.swift in Sources */,
-				028C71BD299A5EB400D197B7 /* FileAccessor.swift in Sources */,
-				028C71BB299A5EB400D197B7 /* ClassifyDiabeatsScreen.swift in Sources */,
-				028C71AF299A5EB400D197B7 /* ModelFacade.swift in Sources */,
-				028C71B2299A5EB400D197B7 /* FirebaseDB.swift in Sources */,
-				028C71B4299A5EB400D197B7 /* DiabeatsMain.swift in Sources */,
-				028C71B5299A5EB400D197B7 /* ListDiabeatsRowScreen.swift in Sources */,
-				028C71BC299A5EB400D197B7 /* ListDiabeatsScreen.swift in Sources */,
-				028C71BA299A5EB400D197B7 /* DiabeatsVO.swift in Sources */,
-				028C71B6299A5EB400D197B7 /* DiabeatsDAO.swift in Sources */,
-				028C71BE299A5EB400D197B7 /* ModelParser.swift in Sources */,
-				028C71B9299A5EB400D197B7 /* OclType.swift in Sources */,
-				028C71C0299A5EB400D197B7 /* DiabeatsBean.swift in Sources */,
-				028C71B1299A5EB400D197B7 /* Ocl.swift in Sources */,
-				028C71BF299A5EB400D197B7 /* ClassifyDiabeatsVO.swift in Sources */,
-				028C71B7299A5EB400D197B7 /* Diabeats.swift in Sources */,
-				028C71B8299A5EB400D197B7 /* OclFile.swift in Sources */,
-				028C71B3299A5EB400D197B7 /* CreateDiabeatsScreen.swift in Sources */,
+				0231361329AD66BF00F28416 /* ModelParser.swift in Sources */,
+				0231361429AD66BF00F28416 /* ClassifyDiabeatsVO.swift in Sources */,
+				0231360829AD66BF00F28416 /* CreateDiabeatsScreen.swift in Sources */,
+				0231361129AD66BF00F28416 /* ContentView.swift in Sources */,
+				0231360D29AD66BF00F28416 /* DiabeatsBean.swift in Sources */,
+				0231361229AD66BF00F28416 /* DiabeatsMain.swift in Sources */,
+				0231361929AD66E400F28416 /* DiabeatsDAO.swift in Sources */,
+				0231361529AD66BF00F28416 /* OclType.swift in Sources */,
+				0231360E29AD66BF00F28416 /* ClassifyDiabeatsScreen.swift in Sources */,
+				0231360C29AD66BF00F28416 /* ListDiabeatsRowScreen.swift in Sources */,
+				0231360A29AD66BF00F28416 /* ModelFacade.swift in Sources */,
+				0231360F29AD66BF00F28416 /* Ocl.swift in Sources */,
+				0231361A29AD66E400F28416 /* FirebaseDB.swift in Sources */,
+				0231360929AD66BF00F28416 /* Diabeats.swift in Sources */,
+				0231360729AD66BF00F28416 /* FileAccessor.swift in Sources */,
+				0231361629AD66BF00F28416 /* DiabeatsVO.swift in Sources */,
+				0231361029AD66BF00F28416 /* OclFile.swift in Sources */,
+				0231360B29AD66BF00F28416 /* ListDiabeatsScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

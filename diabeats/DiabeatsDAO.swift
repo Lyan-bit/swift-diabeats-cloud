@@ -17,33 +17,33 @@ class DiabeatsDAO
   }
 
   static func isCached(id : String) -> Bool
-    { let _x : Diabeats? = Diabeats.Diabeats_index[id]
-    if _x == nil 
+    { let x : Diabeats? = Diabeats.diabeatsIndex[id]
+    if x == nil 
     { return false }
     return true
   }
 
   static func getCachedInstance(id : String) -> Diabeats
-    { return Diabeats.Diabeats_index[id]! }
+    { return Diabeats.diabeatsIndex[id]! }
 
-  static func parseCSV(_line: String) -> Diabeats?
-  { if _line.count == 0
+  static func parseCSV(line: String) -> Diabeats?
+  { if line.count == 0
     { return nil }
-    let _line1vals : [String] = Ocl.tokeniseCSV(line: _line)
+    let line1vals : [String] = Ocl.tokeniseCSV(line: line)
     var diabeatsx : Diabeats? = nil
-      diabeatsx = Diabeats.Diabeats_index[_line1vals[0]]
+      diabeatsx = Diabeats.diabeatsIndex[line1vals[0]]
     if diabeatsx == nil
-    { diabeatsx = createByPKDiabeats(key: _line1vals[0]) }
-    diabeatsx!.id = _line1vals[0]
-    diabeatsx!.pregnancies = Int(_line1vals[1]) ?? 0
-    diabeatsx!.glucose = Int(_line1vals[2]) ?? 0
-    diabeatsx!.bloodPressure = Int(_line1vals[3]) ?? 0
-    diabeatsx!.skinThickness = Int(_line1vals[4]) ?? 0
-    diabeatsx!.insulin = Int(_line1vals[5]) ?? 0
-    diabeatsx!.BMI = Double(_line1vals[6]) ?? 0
-    diabeatsx!.diabetesPedigreeFunction = Double(_line1vals[7]) ?? 0
-    diabeatsx!.age = Int(_line1vals[8]) ?? 0
-    diabeatsx!.outcome = _line1vals[9]
+    { diabeatsx = createByPKDiabeats(key: line1vals[0]) }
+    diabeatsx!.id = line1vals[0]
+    diabeatsx!.pregnancies = Int(line1vals[1]) ?? 0
+    diabeatsx!.glucose = Int(line1vals[2]) ?? 0
+    diabeatsx!.bloodPressure = Int(line1vals[3]) ?? 0
+    diabeatsx!.skinThickness = Int(line1vals[4]) ?? 0
+    diabeatsx!.insulin = Int(line1vals[5]) ?? 0
+    diabeatsx!.bmi = Double(line1vals[6]) ?? 0
+    diabeatsx!.diabetesPedigreeFunction = Double(line1vals[7]) ?? 0
+    diabeatsx!.age = Int(line1vals[8]) ?? 0
+    diabeatsx!.outcome = line1vals[9]
 
     return diabeatsx
   }
@@ -53,37 +53,37 @@ class DiabeatsDAO
 
     if let jsonObj = obj
     { let id : String? = jsonObj["id"] as! String?
-      var _diabeatsx : Diabeats? = Diabeats.Diabeats_index[id!]
-      if (_diabeatsx == nil)
-      { _diabeatsx = createByPKDiabeats(key: id!) }
+      var diabeatsx : Diabeats? = Diabeats.diabeatsIndex[id!]
+      if (diabeatsx == nil)
+      { diabeatsx = createByPKDiabeats(key: id!) }
 
-       _diabeatsx!.id = jsonObj["id"] as! String
-       _diabeatsx!.pregnancies = jsonObj["pregnancies"] as! Int
-       _diabeatsx!.glucose = jsonObj["glucose"] as! Int
-       _diabeatsx!.bloodPressure = jsonObj["bloodPressure"] as! Int
-       _diabeatsx!.skinThickness = jsonObj["skinThickness"] as! Int
-       _diabeatsx!.insulin = jsonObj["insulin"] as! Int
-       _diabeatsx!.BMI = jsonObj["BMI"] as! Double
-       _diabeatsx!.diabetesPedigreeFunction = jsonObj["diabetesPedigreeFunction"] as! Double
-       _diabeatsx!.age = jsonObj["age"] as! Int
-       _diabeatsx!.outcome = jsonObj["outcome"] as! String
-      return _diabeatsx!
+       diabeatsx!.id = jsonObj["id"] as! String
+       diabeatsx!.pregnancies = jsonObj["pregnancies"] as! Int
+       diabeatsx!.glucose = jsonObj["glucose"] as! Int
+       diabeatsx!.bloodPressure = jsonObj["bloodPressure"] as! Int
+       diabeatsx!.skinThickness = jsonObj["skinThickness"] as! Int
+       diabeatsx!.insulin = jsonObj["insulin"] as! Int
+       diabeatsx!.bmi = jsonObj["bmi"] as! Double
+       diabeatsx!.diabetesPedigreeFunction = jsonObj["diabetesPedigreeFunction"] as! Double
+       diabeatsx!.age = jsonObj["age"] as! Int
+       diabeatsx!.outcome = jsonObj["outcome"] as! String
+      return diabeatsx!
     }
     return nil
   }
 
-  static func writeJSON(_x : Diabeats) -> NSDictionary
+  static func writeJSON(x : Diabeats) -> NSDictionary
   { return [    
-       "id": _x.id as NSString, 
-       "pregnancies": NSNumber(value: _x.pregnancies), 
-       "glucose": NSNumber(value: _x.glucose), 
-       "bloodPressure": NSNumber(value: _x.bloodPressure), 
-       "skinThickness": NSNumber(value: _x.skinThickness), 
-       "insulin": NSNumber(value: _x.insulin), 
-       "BMI": NSNumber(value: _x.BMI), 
-       "diabetesPedigreeFunction": NSNumber(value: _x.diabetesPedigreeFunction), 
-       "age": NSNumber(value: _x.age), 
-       "outcome": _x.outcome as NSString
+       "id": x.id as NSString, 
+       "pregnancies": NSNumber(value: x.pregnancies), 
+       "glucose": NSNumber(value: x.glucose), 
+       "bloodPressure": NSNumber(value: x.bloodPressure), 
+       "skinThickness": NSNumber(value: x.skinThickness), 
+       "insulin": NSNumber(value: x.insulin), 
+       "bmi": NSNumber(value: x.bmi), 
+       "diabetesPedigreeFunction": NSNumber(value: x.diabetesPedigreeFunction), 
+       "age": NSNumber(value: x.age), 
+       "outcome": x.outcome as NSString
      ]
   } 
 
@@ -96,12 +96,13 @@ class DiabeatsDAO
     let rows : [String] = Ocl.parseCSVtable(rows: lines)
 
     for (_,row) in rows.enumerated()
-    { if row.count == 0
-      { }
+    { if row.count == 0 {
+    	//check
+    }
       else
-      { let _x : Diabeats? = parseCSV(_line: row)
-        if (_x != nil)
-        { res.append(_x!) }
+      { let x : Diabeats? = parseCSV(line: row)
+        if (x != nil)
+        { res.append(x!) }
       }
     }
     return res

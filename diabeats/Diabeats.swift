@@ -5,16 +5,18 @@ class Diabeats : Decodable {
 	
   private static var instance : Diabeats? = nil	
   
-  init() { }
+  init() { 
+  	//init
+  }
   
   init(copyFrom: Diabeats) {
-  	self.id = "copy_" + copyFrom.id
+  	self.id = "copy" + copyFrom.id
   	self.pregnancies = copyFrom.pregnancies
   	self.glucose = copyFrom.glucose
   	self.bloodPressure = copyFrom.bloodPressure
   	self.skinThickness = copyFrom.skinThickness
   	self.insulin = copyFrom.insulin
-  	self.BMI = copyFrom.BMI
+  	self.bmi = copyFrom.bmi
   	self.diabetesPedigreeFunction = copyFrom.diabetesPedigreeFunction
   	self.age = copyFrom.age
   	self.outcome = copyFrom.outcome
@@ -42,56 +44,58 @@ deinit
   var bloodPressure: Int = 0 
   var skinThickness: Int = 0 
   var insulin: Int = 0 
-  var BMI: Double = 0.0 
+  var bmi: Double = 0.0 
   var diabetesPedigreeFunction: Double = 0.0 
   var age: Int = 0 
   var outcome: String = "" 
 
-  static var Diabeats_index : Dictionary<String,Diabeats> = [String:Diabeats]()
+  static var diabeatsIndex : Dictionary<String,Diabeats> = [String:Diabeats]()
 
   static func getByPKDiabeats(index : String) -> Diabeats?
-  { return Diabeats_index[index] }
+  { return diabeatsIndex[index] }
 
 
 }
 
-  var Diabeats_allInstances : [Diabeats] = [Diabeats]()
+  var DiabeatsAllInstances : [Diabeats] = [Diabeats]()
 
   func createDiabeats() -> Diabeats
 	{ let result : Diabeats = Diabeats()
-	  Diabeats_allInstances.append(result)
+	  DiabeatsAllInstances.append(result)
 	  return result }
   
   func addDiabeats(instance : Diabeats)
-	{ Diabeats_allInstances.append(instance) }
+	{ DiabeatsAllInstances.append(instance) }
 
   func killDiabeats(obj: Diabeats)
-	{ Diabeats_allInstances = Diabeats_allInstances.filter{ $0 !== obj } }
+	{ DiabeatsAllInstances = DiabeatsAllInstances.filter{ $0 !== obj } }
 
   func createByPKDiabeats(key : String) -> Diabeats
 	{ var result : Diabeats? = Diabeats.getByPKDiabeats(index: key)
-	  if result != nil { return result! }
+	  if result != nil { 
+	  	return result!
+	  }
 	  result = Diabeats()
-	  Diabeats_allInstances.append(result!)
-	  Diabeats.Diabeats_index[key] = result!
+	  DiabeatsAllInstances.append(result!)
+	  Diabeats.diabeatsIndex[key] = result!
 	  result!.id = key
 	  return result! }
 
   func killDiabeats(key : String)
-	{ Diabeats.Diabeats_index[key] = nil
-	  Diabeats_allInstances.removeAll(where: { $0.id == key })
+	{ Diabeats.diabeatsIndex[key] = nil
+	  DiabeatsAllInstances.removeAll(where: { $0.id == key })
 	}
 	
 	extension Diabeats : Hashable, Identifiable
 	{ 
-	  static func ==(lhs: Diabeats, rhs: Diabeats) -> Bool
+	  static func == (lhs: Diabeats, rhs: Diabeats) -> Bool
 	  {       lhs.id == rhs.id &&
       lhs.pregnancies == rhs.pregnancies &&
       lhs.glucose == rhs.glucose &&
       lhs.bloodPressure == rhs.bloodPressure &&
       lhs.skinThickness == rhs.skinThickness &&
       lhs.insulin == rhs.insulin &&
-      lhs.BMI == rhs.BMI &&
+      lhs.bmi == rhs.bmi &&
       lhs.diabetesPedigreeFunction == rhs.diabetesPedigreeFunction &&
       lhs.age == rhs.age &&
       lhs.outcome == rhs.outcome
@@ -104,7 +108,7 @@ deinit
     	hasher.combine(bloodPressure)
     	hasher.combine(skinThickness)
     	hasher.combine(insulin)
-    	hasher.combine(BMI)
+    	hasher.combine(bmi)
     	hasher.combine(diabetesPedigreeFunction)
     	hasher.combine(age)
     	hasher.combine(outcome)

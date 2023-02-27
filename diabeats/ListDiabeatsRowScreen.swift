@@ -18,15 +18,13 @@ struct ListDiabeatsRowScreen: View {
           Text(String(instance.insulin))
 	    }
         HStack {
-          Text(String(instance.BMI))
+          Text(String(instance.bmi))
           Text(String(instance.diabetesPedigreeFunction))
           Text(String(instance.age))
           Text(String(instance.outcome))
         }
 }.onAppear()
-
-
-          { model.setSelectedDiabeats(_x: instance) 
+          { model.setSelectedDiabeats(x: instance) 
           }
         }
       }
@@ -34,7 +32,7 @@ struct ListDiabeatsRowScreen: View {
 
     struct ListDiabeatsRowScreen_Previews: PreviewProvider {
       static var previews: some View {
-        ListDiabeatsRowScreen(instance: DiabeatsVO(_x: Diabeats_allInstances[0]))
+        ListDiabeatsRowScreen(instance: DiabeatsVO(x: DiabeatsAllInstances[0]))
       }
     }
 

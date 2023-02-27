@@ -26,34 +26,35 @@ class FirebaseDB
     self.database?.child("diabeatss").observe(.value,
       with:
       { (change) in
-        var _keys : [String] = [String]()
+        var keys : [String] = [String]()
         if let d = change.value as? [String : AnyObject]
         { for (_,v) in d.enumerated()
-          { let _einst = v.1 as! [String : AnyObject]
-            let _ex : Diabeats? = DiabeatsDAO.parseJSON(obj: _einst)
-            _keys.append(_ex!.id)
+          { let einst = v.1 as! [String : AnyObject]
+            let ex : Diabeats? = DiabeatsDAO.parseJSON(obj: einst)
+            keys.append(ex!.id)
           }
         }
-        var _runtimediabeatss : [Diabeats] = [Diabeats]()
-        _runtimediabeatss.append(contentsOf: Diabeats_allInstances)
+        var runtimediabeatss : [Diabeats] = [Diabeats]()
+        runtimediabeatss.append(contentsOf: DiabeatsAllInstances)
 
-        for (_,_obj) in _runtimediabeatss.enumerated()
-        { if _keys.contains(_obj.id)
-          {}
+        for (_,obj) in runtimediabeatss.enumerated()
+        { if keys.contains(obj.id) {
+        	//check
+        }
           else
-          { killDiabeats(key: _obj.id) }
+          { killDiabeats(key: obj.id) }
         }
       })
   }
 
-func persistDiabeats(_x: Diabeats)
-{ let _evo = DiabeatsDAO.writeJSON(_x: _x) 
-  if let newChild = self.database?.child("diabeatss").child(_x.id)
-  { newChild.setValue(_evo) }
+func persistDiabeats(x: Diabeats)
+{ let evo = DiabeatsDAO.writeJSON(x: x) 
+  if let newChild = self.database?.child("diabeatss").child(x.id)
+  { newChild.setValue(evo) }
 }
 
-func deleteDiabeats(_x: Diabeats)
-{ if let oldChild = self.database?.child("diabeatss").child(_x.id)
+func deleteDiabeats(x: Diabeats)
+{ if let oldChild = self.database?.child("diabeatss").child(x.id)
   { oldChild.removeValue() }
 }
 

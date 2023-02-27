@@ -16,14 +16,19 @@ class OclFile
   var fileLength : Int64 = 0
   var outputBuffer : String = ""
   var writeMode : Bool = false
+  var systemIn = "System.in"
+  var systemOut = "System.out"
+  var systemErr = "System.err"
 
-  static var OclFile_index :
+  static var oclFileIndex :
            Dictionary<String,OclFile> = [String:OclFile]()
 
   static func getByPKOclFile(index : String) -> OclFile?
-  { return OclFile_index[index] }
+  { return oclFileIndex[index] }
 
-  init() { }
+  init() { 
+  	//init
+  }
 
   static func defaultInstance() -> OclFile
   { if instance != nil
@@ -52,26 +57,26 @@ class OclFile
     return res
   }
 
-  static func newOclFile_Read(f : OclFile) -> OclFile
+  static func newOclFileRead(f : OclFile) -> OclFile
   { f.openRead()  /* new */
     f.writeMode = false
     return f
   }
 
-  static func newOclFile_Write(f : OclFile) -> OclFile
+  static func newOclFileWrite(f : OclFile) -> OclFile
   { let fname = f.getName()
     OclFile.createFile(filename: fname)
     f.writeMode = true
     return f
   }
 
-  static func newOclFile_ReadB(f : OclFile) -> OclFile
+  static func newOclFileReadB(f : OclFile) -> OclFile
   { f.openRead()  /* new */
     f.writeMode = false
     return f
   }
 
-  static func newOclFile_WriteB(f : OclFile) -> OclFile
+  static func newOclFileWriteB(f : OclFile) -> OclFile
   { let fname = f.getName()
     OclFile.createFile(filename: fname)
     f.writeMode = true
@@ -109,7 +114,9 @@ class OclFile
       writeMode = false
     }
     catch
-    { }
+    { 
+    	//catch
+    }
   }
 
 
@@ -124,8 +131,8 @@ class OclFile
   { writeMode = true }
 
   func closeFile()
-  { if (name == "System.in" ||
-        name == "System.out" || name == "System.err")
+  { if (name == systemIn ||
+        name == systemOut || name == systemErr)
     { return }
 
     let filemgr = FileManager.default
@@ -134,7 +141,7 @@ class OclFile
     let path = docsDir.appendingPathComponent(name)
     
     do
-    { if writeMode == true
+    { if writeMode
       { let wpath =
           try filemgr.url(for: .documentDirectory,
                    in: .allDomainsMask,
@@ -185,7 +192,9 @@ class OclFile
       let furl = path.appendingPathComponent(name)
       return furl.path
     }
-    catch { }
+    catch     { 
+    	//catch
+    }
     return name
   }
 
@@ -198,7 +207,9 @@ class OclFile
     { let filepath = try fm.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
       return filepath.path
     }
-    catch { }
+    catch     { 
+    	//catch
+    }
     return ""
   }
 
@@ -245,14 +256,14 @@ class OclFile
   }
 
     func print(s : String)
-    { if ("System.out" == name || "System.err" == name)
+    { if (systemOut == name || systemErr == name)
       { Swift.print(s) }
       else
       { write(s: s) }
     }
     
   func println(s : String)
-  { if ("System.out" == name || "System.err" == name)
+  { if (systemOut == name || systemErr == name)
     { Swift.print(s) }
     else
     { write(s: s + "\n") }
@@ -261,34 +272,23 @@ class OclFile
   func printf(f : String, sq : [CVarArg])
   { let swiftfmt = f.replacingOccurrences(of: "%s", with: "%@")
     let txt = String(format: swiftfmt, arguments: sq)
-    if ("System.out" == name || "System.err" == name)
+    if (systemOut == name || systemErr == name)
     { Swift.print(txt) }
     else
     { write(s: txt) }
   }
 
   func write(s: String)
-  { /* let fm = FileManager.default
-    do
-    { let path =
-        try fm.url(for: .documentDirectory,
-                   in: .allDomainsMask,
-                   appropriateFor: nil, create: false)
-      let furl = path.appendingPathComponent(name)
-      try s.write(to: furl, atomically: true, encoding: .utf8)
-    }
-    catch { print("Unable to write to file " + name); } */
+  { 
     outputBuffer = outputBuffer + s
   }
 
   func writeObject<T : Encodable>(s : T)
   {
     let encoder = JSONEncoder()
-    let data = try! encoder.encode(s)
-    var jsonString : String =
-                     String(data: data, encoding: .utf8)!
-    jsonString =
-       String(describing: type(of: s)) + " " + jsonString
+    let data = try? encoder.encode(s)
+    let jsonString : String =
+           String(describing: type(of: s)) + " " + String(data: data ?? Data(), encoding: .utf8)!
     println(s: jsonString)
   }
 
@@ -296,11 +296,11 @@ class OclFile
   { write(s: s + "\n") }
 
   func flush()
-  { if writeMode == false
+  { if !writeMode
     { return }
 
-    if (name == "System.in" ||
-        name == "System.out" || name == "System.err")
+    if (name == systemIn ||
+        name == systemOut || name == systemErr)
     { return }
 
     let fm = FileManager.default
@@ -331,7 +331,7 @@ class OclFile
   }
 
   func read() -> String
-  { if name == "System.in"
+  { if name == systemIn
     { let res = Swift.readLine(strippingNewline: true)
       if res == nil
       { return "" }
@@ -422,7 +422,7 @@ class OclFile
   } 
   
   func readLine() -> String
-  { if name == "System.in"
+  { if name == systemIn
     { let res = Swift.readLine(strippingNewline: true)
       if res == nil
       { return "" }
@@ -441,7 +441,7 @@ class OclFile
   }
   
   func readAll() -> String
-  { if name == "System.in"
+  { if name == systemIn
     { let res = Swift.readLine(strippingNewline: true)
       if res == nil
       { return "" }
@@ -610,19 +610,19 @@ class OclFile
     
 }
 
-var OclFile_allInstances : [OclFile] = [OclFile]()
+var OclFileAllInstances : [OclFile] = [OclFile]()
 
 func createOclFile() -> OclFile
 { let result : OclFile = OclFile()
-  OclFile_allInstances.append(result)
+  OclFileAllInstances.append(result)
   return result
 }
 
 func addOclFile(instance : OclFile)
-{ OclFile_allInstances.append(instance) }
+{ OclFileAllInstances.append(instance) }
 
 func killOclFile(obj: OclFile)
-{ OclFile_allInstances = OclFile_allInstances.filter{ $0 !== obj } }
+{ OclFileAllInstances = OclFileAllInstances.filter{ $0 !== obj } }
 
 
 func createByPKOclFile(key : String) -> OclFile
@@ -630,13 +630,13 @@ func createByPKOclFile(key : String) -> OclFile
   if result != nil
   { return result! }
   result = OclFile()
-  OclFile_allInstances.append(result!)
-  OclFile.OclFile_index[key] = result!
+  OclFileAllInstances.append(result!)
+  OclFile.oclFileIndex[key] = result!
   result!.name = key
   return result!
 }
 
 func killOclFile(key : String)
-{ OclFile.OclFile_index[key] = nil
-  OclFile_allInstances.removeAll(where: { $0.name == key })
+{ OclFile.oclFileIndex[key] = nil
+  OclFileAllInstances.removeAll(where: { $0.name == key })
 }
