@@ -116,33 +116,5 @@ class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
 	
   func setOutcome(x : String)
 	  { outcome = x }
-	  
-
-  static func == (lhs: DiabeatsVO, rhs: DiabeatsVO) -> Bool
-  { return
-      lhs.id == rhs.id &&
-      lhs.pregnancies == rhs.pregnancies &&
-      lhs.glucose == rhs.glucose &&
-      lhs.bloodPressure == rhs.bloodPressure &&
-      lhs.skinThickness == rhs.skinThickness &&
-      lhs.insulin == rhs.insulin &&
-      lhs.bmi == rhs.bmi &&
-      lhs.diabetesPedigreeFunction == rhs.diabetesPedigreeFunction &&
-      lhs.age == rhs.age &&
-      lhs.outcome == rhs.outcome
-  }
-
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-    hasher.combine(pregnancies)
-    hasher.combine(glucose)
-    hasher.combine(bloodPressure)
-    hasher.combine(skinThickness)
-    hasher.combine(insulin)
-    hasher.combine(bmi)
-    hasher.combine(diabetesPedigreeFunction)
-    hasher.combine(age)
-    hasher.combine(outcome)
-  }
-
+	 
 }
