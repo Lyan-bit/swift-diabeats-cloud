@@ -1,7 +1,7 @@
 
 import Foundation
 
-class DiabeatsVO : Hashable, Identifiable, Decodable, Encodable {
+class DiabeatsVO : Identifiable, Decodable, Encodable {
 
   var id: String = ""
   var pregnancies: Int = 0
