@@ -1,7 +1,7 @@
 
 import Foundation
 
-class DiabeatsBean {
+class DiabeatsBean { 
 	
   var errorList : [String] = [String]()
 
